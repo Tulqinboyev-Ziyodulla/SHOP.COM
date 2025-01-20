@@ -1,4 +1,4 @@
-import logo from "../assets/SHOP.CO.png";
+import logo from "../assets/SHOP.CO.svg";
 import social1 from "../assets/social1.svg";
 import social2 from "../assets/social2.svg";
 import social3 from "../assets/social3.svg";

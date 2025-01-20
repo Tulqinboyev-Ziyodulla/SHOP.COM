@@ -3,13 +3,10 @@
 @tailwind utilities;
 
 body {
-    font-family: sans-serif;
+    @apply font-sans;
 }
 
 .container {
-    width: 100%;
+    @apply mx-auto px-4;
     max-width: 1548px;
-    margin: 0 auto;
-    padding: 0 auto;
-    box-sizing: border-box;
 }
