@@ -13,9 +13,3 @@ body {
     padding: 0 auto;
     box-sizing: border-box;
 }
-
-.hero-bg {
-    background-image: url("./assets/images/hero-img.png");
-    background-repeat: no-repeat;
-    background-position: left;
-}
