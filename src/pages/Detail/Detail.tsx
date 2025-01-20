@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/slice/cartSlice';
-import Loading from '../../components/Loading/Loading';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 
 interface Product {
@@ -45,7 +44,7 @@ const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const queryClient = useQueryClient();
 
-  const { data: products, isLoading } = useQuery({
+  const { data: products } = useQuery({
     queryKey: ['products', id],
     queryFn: () => fetchProductById(id!),
     enabled: !!id,
@@ -95,10 +94,6 @@ const Detail: React.FC = () => {
     setCommentData({ author: '', text: '', star: 0 });
     setIsModalOpen(false);
   };
-
-  if (isLoading) {
-    return <div><Loading /></div>;
-  }
 
   return (
     <section className="container mx-auto p-6 mt-10">

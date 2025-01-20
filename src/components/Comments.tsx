@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Rating } from "@mui/material";
-import Loading from "./Loading/Loading";
 
 type Comment = {
   id: string;
@@ -18,17 +17,11 @@ const fetchComments = async (): Promise<Comment[]> => {
 };
 
 const Comments: React.FC = () => {
-  const { data: comments, isLoading, isError } = useQuery<Comment[]>({
+  const { data: comments, isError } = useQuery<Comment[]>({
     queryKey: ["comments"],
     queryFn: fetchComments,
   });
-  if (isLoading) {
-    return (
-      <div className="text-center">
-        <Loading />
-      </div>
-    );
-  }
+  
   if (isError) {
     return (
       <div className="text-center text-red-500">

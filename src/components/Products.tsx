@@ -2,7 +2,6 @@ import axios from "axios";
 import { Product } from "../types";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import Loading from "./Loading/Loading";
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await axios.get(
@@ -13,18 +12,10 @@ const fetchProducts = async (): Promise<Product[]> => {
 
 const Products: React.FC = () => {
   const navigate = useNavigate();
-  const { data: products, isLoading, isError } = useQuery<Product[]>({
+  const { data: products, isError } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: fetchProducts,
   });
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Loading />
-      </div>
-    );
-  }
 
   if (isError) {
     return (
