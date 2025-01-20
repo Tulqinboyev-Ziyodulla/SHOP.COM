@@ -1,7 +1,11 @@
+import Routers from './router'
 
-const App = () => {
+function App() {
+
   return (
-    <div>App</div>
+    <>
+    <Routers/>
+    </>
   )
 }
 
