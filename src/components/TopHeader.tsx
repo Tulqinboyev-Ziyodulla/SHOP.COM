@@ -1,7 +1,7 @@
 import { IoClose } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
-const Sign = () => {
+const TopHeader = () => {
   return (
     <div className="container py-[10px] relative flex items-center justify-center gap-[20px] bg-black">
       <p className="text-white max-sm:text-center">
@@ -13,4 +13,4 @@ const Sign = () => {
   );
 }
 
-export default Sign;
+export default TopHeader;

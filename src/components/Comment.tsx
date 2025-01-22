@@ -17,29 +17,46 @@ const fetchComments = async (): Promise<Comment[]> => {
 };
 
 const Comments: React.FC = () => {
-  const { data: comments, isError } = useQuery<Comment[]>({
+  const { data: comments, isError, isLoading, error } = useQuery<Comment[]>({
     queryKey: ["comments"],
     queryFn: fetchComments,
   });
-  
-  if (isError) {
+
+  if (isLoading) {
     return (
-      <div className="text-center text-red-500">
-        Failed to fetch comments. Please try again later.
+      <div className="text-center text-gray-500">
+        Loading...
       </div>
     );
   }
+
+  if (isError) {
+    return (
+      <div className="text-center text-red-500">
+        Failed to fetch comments: {(error as Error)?.message || "Unknown error"}
+      </div>
+    );
+  }
+
   const fiveStarComments = comments?.filter((comment) => comment.star === 5);
   const limitedComments = fiveStarComments?.slice(0, 6);
 
+  if (!limitedComments || limitedComments.length === 0) {
+    return (
+      <div className="text-center text-gray-700">
+        No five-star comments available.
+      </div>
+    );
+  }
+
   return (
     <section className="container mb-20 mt-20 px-4 md:px-8 lg:px-16">
-      <div className="container">
+      <div>
         <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 text-center text-gray-900">
           OUR HAPPY CUSTOMERS
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-          {limitedComments?.map((comment) => (
+          {limitedComments.map((comment) => (
             <div
               key={comment.id}
               className="border p-4 rounded-lg shadow-lg bg-white hover:shadow-xl transition-all duration-300"

@@ -1,8 +1,7 @@
-import Cart from '../pages/Cart/Cart'
-import Detail from '../pages/Detail/Detail'
+import Cart from '../pages/cart-page/CartPage'
+import Detail from '../pages/detail-page/DetailPage'
 import Home from '../pages/Home/Home'
 import Layout from '../pages/Layout/Layout'
-import NotFound from '../pages/NotFound/NotFound'
 import { Route, Routes } from 'react-router-dom'
 
 const Router = () => {
@@ -13,7 +12,6 @@ const Router = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/cart' element={<Cart/>}/>
                 <Route path='/detail/:id' element={<Detail/>}/>
-                <Route path='*' element={<NotFound/>}/>
             </Route>
         </Routes>   
     </>

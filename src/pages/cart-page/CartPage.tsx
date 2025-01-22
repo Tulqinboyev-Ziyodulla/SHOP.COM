@@ -4,7 +4,7 @@ import { removeFromCart, updateQuantity, clearCart } from '../../redux/slice/car
 import { RootState } from '../../redux/store';
 import { MdDelete } from "react-icons/md";
 
-const Cart: React.FC = () => {
+const CartPage: React.FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
@@ -95,4 +95,4 @@ const Cart: React.FC = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

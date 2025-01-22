@@ -1,6 +1,6 @@
 import { TfiEmail } from "react-icons/tfi";
 
-const Contact = () => {
+const About: React.FC = () => {
   return (
     <section className="mt-20 sm:mt-28">
       <div className="container mx-auto px-4 md:px-8">
@@ -31,4 +31,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default About;

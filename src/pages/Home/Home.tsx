@@ -1,8 +1,8 @@
-import Brands from '../../components/Brands'
-import Comments from '../../components/Comments'
-import Dress from '../../components/Dress'
+import Brands from '../../components/Brand'
+import Comments from '../../components/Comment'
+import Dress from '../../components/Casual'
 import Hero from '../../components/Hero'
-import Products from '../../components/Products'
+import Products from '../../components/Product'
 
 const Home = () => {
   return (

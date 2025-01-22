@@ -1,4 +1,5 @@
 const Hero = () => {
+  
   return (
     <section className="container hero-section">
       <div className="w-full max-w-[1440px] mx-auto p-[98px] hero-bg max-sm:bg-none max-sm:px-4 max-sm:py-10">
